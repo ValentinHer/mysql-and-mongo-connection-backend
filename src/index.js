@@ -1,0 +1,24 @@
+import express from 'express';
+import envConfig from "./env.config.js";
+import { dbConnection } from "./db.conecction.config.js";
+import mongoDbUsersRouter from "./routes/user.mongo.routes.js";
+import mysqlDbUsersRouter from "./routes/user.mysql.routes.js";
+import cors from "cors";
+
+const app = express();
+app.use(express.json());
+app.use(cors());
+
+app.use('/mongodb/users', mongoDbUsersRouter);
+app.use('/mysql/users', mysqlDbUsersRouter);
+
+// async function main() {
+//     let newConnection = await new dbConnection().connection();
+//     console.log(newConnection);
+// }
+
+app.listen(envConfig.SERVER_PORT, async () => {
+    await new dbConnection().mongoDbConnection();
+    
+    console.log(`server started in PORT ${envConfig.SERVER_PORT}`);
+})
