@@ -1,6 +1,7 @@
 import express from 'express';
 import envConfig from "./env.config.js";
 import { dbConnection } from "./db.conecction.config.js";
+import {} from "./models/user.mysql.model.js";
 import mongoDbUsersRouter from "./routes/user.mongo.routes.js";
 import mysqlDbUsersRouter from "./routes/user.mysql.routes.js";
 import cors from "cors";
