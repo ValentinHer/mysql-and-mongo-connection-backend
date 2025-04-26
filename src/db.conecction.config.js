@@ -3,16 +3,6 @@ import mysql from 'mysql2/promise';
 import mongoose from 'mongoose';
 
 export class dbConnection {
-    // dbUrl = envConfig.URL_DB_RELATIONAL;
-
-    // async connection(){
-    //     if(this.dbUrl.includes("mysql")) {
-    //         return await this.mysqlConnection(this.dbUrl);
-    //     } else {
-    //         return await this.mongoDbConnection(this.dbUrl);
-    //     }
-    // }
-
     async mysqlConnection() {
         const url = envConfig.URL_DB_RELATIONAL;
 
@@ -21,18 +11,26 @@ export class dbConnection {
         const [hostPort, database] = hostPortDb.split("/");
         const [hostname, port] = hostPort.split(":");
         
-        return await mysql.createConnection({
-            host: hostname,
-            port,
-            user,
-            password,
-            database
-        });
+        try {
+            return await mysql.createConnection({
+                host: hostname,
+                port,
+                user,
+                password,
+                database
+            });
+        } catch (error) {
+            console.log("Error al conectar a MySql ", error);
+        }
     }
 
     async mongoDbConnection() {
         const url = envConfig.URL_DB_NOTRELATIONAL;
         
-        return await mongoose.connect(url);
+        try {
+            return await mongoose.connect(url);
+        } catch (error) {
+            console.log("Error al conectar a MongoDB ", error);
+        }
     }
 }

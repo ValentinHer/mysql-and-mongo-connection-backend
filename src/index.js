@@ -12,11 +12,6 @@ app.use(cors());
 app.use('/mongodb/users', mongoDbUsersRouter);
 app.use('/mysql/users', mysqlDbUsersRouter);
 
-// async function main() {
-//     let newConnection = await new dbConnection().connection();
-//     console.log(newConnection);
-// }
-
 app.listen(envConfig.SERVER_PORT, async () => {
     await new dbConnection().mongoDbConnection();
     

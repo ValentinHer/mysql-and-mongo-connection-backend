@@ -1,0 +1,22 @@
+services: 
+  dbmysql:
+    container_name: mysql_container
+    image: mysql:lts
+    environment: 
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_practica
+    ports:
+      - 3306:3306
+    restart: always
+
+  dbmongo:
+    container_name: mongo_container
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongoadmin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+      MONGO_INITDB_DATABASE: db_practica
+    ports:
+      - 27017:27017
+    restart: always
+

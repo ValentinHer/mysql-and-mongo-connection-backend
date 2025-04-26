@@ -10,7 +10,7 @@ const User = mongoose.model('User', userSchema);
 const s3Client = new S3Client({
     region: envConfig.AWS_REGION,
     credentials: {
-        accessKeyId: envConfig.AWS_ACCESS_KEYID,
+        accessKeyId: envConfig.AWS_ACCESS_KEY,
         secretAccessKey: envConfig.AWS_SECRET_ACCESSKEY
     }
 });
