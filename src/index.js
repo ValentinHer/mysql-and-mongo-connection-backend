@@ -10,8 +10,8 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.use('/mongodb/users', mongoDbUsersRouter);
-app.use('/mysql/users', mysqlDbUsersRouter);
+app.use('/api/mongodb/users', mongoDbUsersRouter);
+app.use('/api/mysql/users', mysqlDbUsersRouter);
 
 app.listen(envConfig.SERVER_PORT, async () => {
     await new dbConnection().mongoDbConnection();

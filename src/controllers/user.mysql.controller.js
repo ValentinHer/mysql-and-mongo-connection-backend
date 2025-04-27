@@ -55,7 +55,7 @@ export const create = async (req, res) => {
     return res
       .status(400)
       .json({
-        message: `Problemas al ejecutar la operación, intente de nuevo ${err}`,
+        message: `Problemas al ejecutar la operación, intente de nuevo`,
       });
   }
 };
@@ -90,7 +90,7 @@ export const getById = async (req, res) => {
     return res
       .status(400)
       .json({
-        message: `Problemas al ejecutar la operación, intente de nuevo ${error}`,
+        message: `Problemas al ejecutar la operación, intente de nuevo`,
       });
   }
 };
@@ -125,7 +125,7 @@ export const getAll = async (req, res) => {
     return res
       .status(400)
       .json({
-        message: `Problemas al ejecutar la operación, intente de nuevo ${error}`,
+        message: `Problemas al ejecutar la operación, intente de nuevo`,
       });
   }
 };
@@ -194,7 +194,7 @@ export const update = async (req, res) => {
     return res
       .status(400)
       .json({
-        message: `Problemas al ejecutar la operación, intente de nuevo ${err}`,
+        message: `Problemas al ejecutar la operación, intente de nuevo`,
       });
   }
 };
@@ -228,7 +228,7 @@ export const remove = async (req, res) => {
     return res
       .status(400)
       .json({
-        message: `Problemas al ejecutar la operación, intente de nuevo ${err}`,
+        message: `Problemas al ejecutar la operación, intente de nuevo`,
       });
   }
 };
