@@ -139,7 +139,7 @@ export const update = async(req, res) => {
                 Body: req.file.buffer
             }));
         } catch (err) {
-            return res.status(400).json({message: `Error al actualizar la imagen ${err}`});
+            return res.status(400).json({message: `Error al actualizar la imagen`});
         }
     }
 

@@ -67,3 +67,8 @@ Si todavia no tienes el FrontEnd del proyecto, clonalo desde el siguiente reposi
     ```
     npm run dev
     ```
+
+## Documentación de API
+
+- Entra al siguiente link una vez inicializado el proyecto para visualizar todas las operaciones disponibles en la API: 
+`http://localhost:3000`
