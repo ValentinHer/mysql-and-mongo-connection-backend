@@ -10,7 +10,7 @@ const User = mongoose.model('User', userSchema);
 const s3Client = new S3Client({
     region: envConfig.AWS_REGION,
     credentials: {
-        accessKeyId: envConfig.AWS_ACCESS_KEYID,
+        accessKeyId: envConfig.AWS_ACCESS_KEY,
         secretAccessKey: envConfig.AWS_SECRET_ACCESSKEY
     }
 });
@@ -44,7 +44,7 @@ export const create = async(req, res) => {
 
         return res.status(201).json({message: "Usuario Registrado Exitosamente"});
     } catch (err) {
-        return res.status(400).json({message: `Problemas al ejecutar la operación, intente de nuevo ${err}`})
+        return res.status(400).json({message: `Problemas al ejecutar la operación, intente de nuevo`})
     }
 }
 
@@ -75,7 +75,7 @@ export const getById = async(req, res) => {
         }
         return res.status(200).json(dataWithUrl);
     } catch (error) {
-        return res.status(400).json({message: `Problemas al ejecutar la operación, intente de nuevo ${error}`})
+        return res.status(400).json({message: `Problemas al ejecutar la operación, intente de nuevo`})
     }
 }
 
@@ -108,7 +108,7 @@ export const getAll = async(req, res) => {
 
         return res.status(200).json(newData);
     } catch (error) {
-        return res.status(400).json({message: `Problemas al ejecutar la operación, intente de nuevo ${error}`})
+        return res.status(400).json({message: `Problemas al ejecutar la operación, intente de nuevo`})
     }
 }
 
@@ -139,7 +139,7 @@ export const update = async(req, res) => {
                 Body: req.file.buffer
             }));
         } catch (err) {
-            return res.status(400).json({message: `Error al actualizar la imagen ${err}`});
+            return res.status(400).json({message: `Error al actualizar la imagen`});
         }
     }
 
@@ -169,8 +169,8 @@ export const remove = async(req, res) => {
 
         const userRemoved = await User.deleteOne({_id: new ObjectId(id)});
 
-        return res.status(200).json({message: "User Eliminado Exitosamente"});
+        return res.status(200).json({message: "Usuario Eliminado Exitosamente"});
     } catch (err) {
-        return res.status(400).json({message: `Problemas al ejecutar la operación, intente de nuevo ${err}`})
+        return res.status(400).json({message: `Problemas al ejecutar la operación, intente de nuevo`})
     }
 }
